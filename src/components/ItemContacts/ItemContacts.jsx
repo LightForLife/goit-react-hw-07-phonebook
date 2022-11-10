@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FaUserTimes } from 'react-icons/fa';
-// import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 import {
   ItemContact,
   NameContact,
@@ -11,8 +11,7 @@ import {
 
 export const ItemContacts = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteContact(id));
-  const handleDelete = () => console.log(name);
+  const handleDelete = () => dispatch(deleteContact(id));
 
   return (
     <ItemContact id={id}>
@@ -27,8 +26,8 @@ export const ItemContacts = ({ id, name, number }) => {
   );
 };
 
-ItemContacts.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
+// ItemContacts.propTypes = {
+//   id: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.string.isRequired,
+// };

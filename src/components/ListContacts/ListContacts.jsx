@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { nanoid } from 'nanoid';
 import { ItemContacts } from 'components/ItemContacts/ItemContacts';
 
 export const ListContacts = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  console.log(contacts);
+  const filter = useSelector(selectFilter);
 
   const visibleContacts = () => {
     const constNormalizedFilter = filter.toLowerCase();

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
-// import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { FormError, schema } from 'components/Validation/Validation';
 import {
   FormBox,
@@ -17,7 +17,7 @@ export const ContactForm = () => {
   const numberInputId = nanoid();
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const initialValues = {
     name: '',
@@ -33,7 +33,7 @@ export const ContactForm = () => {
       alert(`${value.name} is already in contacts`);
       return;
     }
-    // dispatch(addContact(value.name, value.number));
+    dispatch(addContact(value.name, value.number));
 
     actions.resetForm();
   };
