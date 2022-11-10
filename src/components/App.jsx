@@ -28,6 +28,7 @@ export const App = () => {
         <SearchTitle>Contacts</SearchTitle>
         <Filter />
         {isLoading && !error && <b>Request in progress...</b>}
+        {error && <b>{error}</b>}
         <ListContacts />
       </Container>
     </>

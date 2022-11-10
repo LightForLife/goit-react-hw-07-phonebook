@@ -33,7 +33,13 @@ export const ContactForm = () => {
       alert(`${value.name} is already in contacts`);
       return;
     }
-    dispatch(addContact(value.name, value.number));
+
+    const body = {
+      name: value.name,
+      phone: value.number,
+    };
+
+    dispatch(addContact(body));
 
     actions.resetForm();
   };

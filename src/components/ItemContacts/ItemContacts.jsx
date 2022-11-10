@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FaUserTimes } from 'react-icons/fa';
 import { deleteContact } from 'redux/operations';
 import {
@@ -9,19 +9,19 @@ import {
   TelContact,
 } from './ItemContacts.styled';
 
-export const ItemContacts = ({ id, name, number }) => {
+export const ItemContacts = ({ contact }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(id));
+  const handleDelete = () => dispatch(deleteContact(contact.id));
 
   return (
-    <ItemContact id={id}>
+    <ItemContact id={contact.id}>
       <NameContact>
-        {name}
+        {contact.name}
         <DeleteContactBtn onClick={handleDelete}>
           <FaUserTimes size={18} />
         </DeleteContactBtn>
       </NameContact>
-      <TelContact>{number}</TelContact>
+      <TelContact>{contact.phone}</TelContact>
     </ItemContact>
   );
 };
