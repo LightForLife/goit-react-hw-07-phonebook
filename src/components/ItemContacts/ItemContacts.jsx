@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FaUserTimes } from 'react-icons/fa';
 import { deleteContact } from 'redux/operations';
 import {
@@ -26,8 +26,10 @@ export const ItemContacts = ({ contact }) => {
   );
 };
 
-// ItemContacts.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   number: PropTypes.string.isRequired,
-// };
+ItemContacts.propTypes = {
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+  }).isRequired,
+};

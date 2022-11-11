@@ -8,6 +8,8 @@ import { ListContacts } from './ListContacts/ListContacts';
 import { Filter } from './FilterSearch/FilterSearch';
 import { GlobalStyle } from 'styles/GlobalStyles';
 import { Container, MainTitle, SearchTitle } from './App.styled';
+import { Loader } from './Loader/Loader';
+import { Error } from './Error/Error';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,9 +29,10 @@ export const App = () => {
         <ContactForm />
         <SearchTitle>Contacts</SearchTitle>
         <Filter />
-        {isLoading && !error && <b>Request in progress...</b>}
-        {error && <b>{error}</b>}
-        <ListContacts />
+
+        {isLoading && !error && <Loader />}
+        {error && <Error />}
+        {!isLoading && <ListContacts />}
       </Container>
     </>
   );
